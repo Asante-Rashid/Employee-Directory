@@ -29,8 +29,12 @@ class Table extends Component {
             <div>
                 {this.state.Employees.map(employee => (
                     <EmployeeCard
-                        id={employee.id}
-                        picture={employee.picture.large}
+                        key={employee.id.value}
+                        picture={employee.picture.thumbnail}
+                        FirstName= {employee.name.first}
+                        LastName={employee.name.last}
+                        Email={employee.email}
+                        DoB={employee.dob.age}
                         
                         // need to pass more variables to be used as props.whatevers in the employeecard
                     />
