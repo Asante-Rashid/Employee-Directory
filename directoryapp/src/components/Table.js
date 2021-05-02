@@ -4,15 +4,23 @@ import EmployeeCard from "../components/EmployeeCard";
 
 class Table extends Component {
     state = {
-        Employees: [],
+        Employees: {},
     };
 
     // When the component mounts, get a list of all available base breeds and update this.state.breeds
     componentDidMount() {
-        API.getEmployees()
-            .then(res => this.setState({ Employees: res.data.message }))
-            .catch(err => console.log(err));
+        this.loadEmployees();
     }
+
+    loadEmployees = () => {
+        API.getEmployees()
+          .then(res =>
+            this.setState({
+              Employees: res.data
+            })
+          )
+          .catch(err => console.log(err));
+      };
 
     render() {
         return (
