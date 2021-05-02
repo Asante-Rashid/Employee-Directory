@@ -17,8 +17,15 @@ class Table extends Component {
     render() {
         return (
             <div>
-                <EmployeeCard />
+                {this.state.Employees.map(employee => (
+                    <EmployeeCard
+                        id={employee.id}
+                        key={employee.id}
+                        // need to pass more variables to be used as props.whatevers in the employeecard
+                    />
+                ))}
             </div>
+
         );
     }
 }
