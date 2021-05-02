@@ -4,7 +4,7 @@ import EmployeeCard from "../components/EmployeeCard";
 
 class Table extends Component {
     state = {
-        Employees: {},
+        Employees: [],
     };
 
     // When the component mounts, get a list of all available base breeds and update this.state.breeds
@@ -16,10 +16,12 @@ class Table extends Component {
         API.getEmployees()
           .then(res =>
             this.setState({
-              Employees: res.data
+              Employees: res.data.results
             })
           )
-          .catch(err => console.log(err));
+          .catch(err => console.log(err))
+          console.log(this.state)
+          
       };
 
     render() {
@@ -28,7 +30,8 @@ class Table extends Component {
                 {this.state.Employees.map(employee => (
                     <EmployeeCard
                         id={employee.id}
-                        key={employee.id}
+                        picture={employee.picture.large}
+                        
                         // need to pass more variables to be used as props.whatevers in the employeecard
                     />
                 ))}

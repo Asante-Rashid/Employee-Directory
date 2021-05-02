@@ -10,7 +10,7 @@ function App() {
     <div className="container">
     <NavBar/>
     <SearchBar/>
-    {/* <Table/>  */}
+    <Table/> 
     </div>
 
   );
