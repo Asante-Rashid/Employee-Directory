@@ -14,14 +14,14 @@ function SearchBar(props) {
           id="Search"
         />
         {/* datalist tag is used to provide an autocomplete feature.  */}
-        <datalist id="Employees">
+        {/* <datalist id="Employees">
           {props.Employees.map(employee => (
             <option
               value={employee.name.first}
               key={employee.login.md5}
             />
           ))}
-        </datalist>
+        </datalist> */}
       </div>
     </form>
   );

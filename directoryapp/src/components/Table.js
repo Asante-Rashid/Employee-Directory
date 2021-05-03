@@ -24,10 +24,27 @@ class Table extends Component {
             .catch(err => console.log(err))
     };
 
+    // changes the filter/search criteria on every key click in the search bar
     handleInputChange = event => {
         this.setState({ search: event.target.value });
-        console.log(this.state.search)
-      };
+        // const currentState = [this.state.Employees]
+        // console.log(currentState)
+        this.handleFilter(this.state.search)
+    };
+
+    handleFilter(search) {
+        const updatedList = this.state.Employees.map(employee => {
+            if (employee.name.first === search) {
+                // Employees.filter()
+                const filteredEmployees = this.state.Employees.filter(employee => employee.name.first === search)
+                console.log(filteredEmployees)
+                return { ...this.state, Employees: filteredEmployees}
+            }
+            return {...this.state};
+        });
+        this.setState(updatedList);
+       
+    }
 
     render() {
         return (
