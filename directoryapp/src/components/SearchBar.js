@@ -11,14 +11,14 @@ function SearchBar(props) {
           onChange={props.handleInputChange}
           className="form-control"
           placeholder="search by first name"
-          id="FirstName"
+          id="Search"
         />
         {/* datalist tag is used to provide an autocomplete feature.  */}
         <datalist id="Employees">
           {props.Employees.map(employee => (
             <option
               value={employee.name.first}
-              key={employee.id.value}
+              key={employee.login.md5}
             />
           ))}
         </datalist>

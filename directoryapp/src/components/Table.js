@@ -38,7 +38,7 @@ class Table extends Component {
                 />
                 {this.state.Employees.map(employee => (
                     <EmployeeCard
-                        key={employee.id.value}
+                        key={employee.login.md5}
                         picture={employee.picture.thumbnail}
                         FirstName={employee.name.first}
                         LastName={employee.name.last}
