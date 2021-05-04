@@ -7,6 +7,7 @@ class Table extends Component {
     state = {
         Employees: [],
         search: "",
+        results: {},
     };
 
     // When the component mounts, get a list of all available base breeds and update this.state.breeds
@@ -28,22 +29,22 @@ class Table extends Component {
     handleInputChange = event => {
         this.setState({ search: event.target.value });
         // const currentState = [this.state.Employees]
-        // console.log(currentState)
+       
         this.handleFilter(this.state.search)
     };
-
+// ! instead of trying to update/append maybe we should try to create another state value as a placeholder and if it has a valuer then the employeecard changes state
     handleFilter(search) {
-        const updatedList = this.state.Employees.map(employee => {
-            if (employee.name.first === search) {
-                // Employees.filter()
+         this.state.Employees.map(employee => {
+             if (employee.name.first === search) {
                 const filteredEmployees = this.state.Employees.filter(employee => employee.name.first === search)
-                console.log(filteredEmployees)
-                return { ...this.state, Employees: filteredEmployees}
+                const employeeFile = filteredEmployees[0]
+                console.log(employeeFile)
+                this.setState({ results: employeeFile})
             }
-            return {...this.state};
-        });
-        this.setState(updatedList);
-       
+            // this.setState({...this.state});
+        })
+        // this.setState(updatedList);
+        console.log(this.state)
     }
 
     render() {
