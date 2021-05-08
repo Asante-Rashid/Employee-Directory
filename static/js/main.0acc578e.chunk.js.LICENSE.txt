@@ -1,1 +1,0 @@
-//! setstate may be happening too fast for the filter or the console log to load. should probaly make it its own funstion call in order to slow it doen
